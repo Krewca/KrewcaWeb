@@ -3,130 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive Resume - Marek Krejčík">
     <title>Marek Krejčík | Esports & Tech</title>
+    <meta name="description" content="Professional Portfolio - Marek Krejčík">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@500;700;800&display=swap&subset=latin-ext" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;800&display=swap&subset=latin,latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* Stejné styly jako v CZ verzi - zkopírovány pro konzistenci */
         :root {
-            --bg-dark: #0b0c15; --bg-card: #151621; --primary: #ff4655; --secondary: #00f0ff;
-            --text-main: #ffffff; --text-muted: #9494a0; --font-main: 'Inter', sans-serif; --font-head: 'Outfit', sans-serif;
+            --bg-dark: #0b0c15; --bg-card: #151621; --primary: #ff4655; --cyan: #00f0ff;
+            --text-main: #ffffff; --text-muted: #9494a0; --font-stack: 'Outfit', sans-serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: var(--bg-dark); color: var(--text-main); font-family: var(--font-main); line-height: 1.6; overflow-x: hidden;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-        body::after {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 90%); pointer-events: none; z-index: -1;
-        }
-        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
-       .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
-       .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
-       .lang-btn { font-family: var(--font-head); font-weight: 700; color: var(--text-muted); border: 1px solid var(--text-muted); padding: 5px 12px; border-radius: 4px; cursor: pointer; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
-       .lang-btn:hover { color: var(--secondary); border-color: var(--secondary); }
-        header { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-       .hero-name { font-family: var(--font-head); font-size: 5rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -2px; text-transform: uppercase; }
-       .hero-name span { color: var(--primary); }
-       .typewriter { font-size: 1.8rem; color: var(--secondary); font-family: 'Courier New', monospace; min-height: 1.8em; }
-       .typewriter::after { content: '|'; animation: blink 1s infinite; color: var(--text-main); }
-        section { padding: 100px 0; }
-       .section-title { font-family: var(--font-head); font-size: 2.5rem; font-weight: 700; margin-bottom: 3.5rem; display: inline-block; position: relative; }
-       .section-title::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 60px; height: 4px; background: var(--primary); }
-       .carousel-container { position: relative; width: 100%; max-width: 800px; margin: 0 auto 50px auto; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); aspect-ratio: 16/9; background: #000; }
-       .slides { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); height: 100%; }
-       .slide { min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #222; color: #555; }
-       .slide img { width: 100%; height: 100%; object-fit: cover; }
-       .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 1.2rem; transition: 0.3s; }
-       .carousel-btn:hover { background: var(--primary); }
-       .prev { left: 15px; }.next { right: 15px; }
-       .timeline { position: relative; max-width: 800px; margin: 0 auto; }
-       .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: #2d2d3a; }
-       .timeline-item { position: relative; margin-bottom: 60px; padding-left: 45px; opacity: 1; }
-       .timeline-item.hidden { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
-       .timeline-item.visible { opacity: 1; transform: translateY(0); }
-       .timeline-item::before { content: ''; position: absolute; left: -6px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg-dark); border: 2px solid var(--primary); box-shadow: 0 0 10px rgba(255, 70, 85, 0.5); }
-       .role { font-size: 1.4rem; font-weight: 700; color: #fff; font-family: var(--font-head); }
-       .company { color: var(--secondary); font-weight: 600; margin-bottom: 5px; }
-       .date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; display: inline-block; background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 4px;}
+        body { background-color: var(--bg-dark); color: var(--text-main); font-family: var(--font-stack); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: 0.2s; }
+       .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 80px 0; }
+       .section-title { font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 40px; display: inline-block; border-bottom: 3px solid var(--primary); padding-bottom: 5px; }
+        header { height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; }
+       .lang-switch { position: absolute; top: 20px; right: 20px; }
+       .lang-btn { background: transparent; border: 1px solid var(--text-muted); color: var(--text-muted); padding: 8px 16px; font-family: var(--font-stack); font-weight: 700; cursor: pointer; transition: all 0.3s; }
+       .lang-btn:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 15px rgba(0, 240, 255, 0.2); }
+        h1.hero-name { font-size: 5rem; font-weight: 800; line-height: 1; margin-bottom: 10px; letter-spacing: -2px; }
+        h1 span { color: var(--primary); }
+       .typewriter { font-size: 1.5rem; color: var(--cyan); font-family: monospace; height: 1.6em; }
+       .cursor { display: inline-block; width: 2px; background-color: var(--text-main); animation: blink 1s infinite; }
+       .carousel-wrap { position: relative; display: flex; align-items: center; }
+       .carousel { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; cursor: grab; scrollbar-width: none; -ms-overflow-style: none; }
+       .carousel::-webkit-scrollbar { display: none; }
+       .carousel.active { cursor: grabbing; }
+       .card { min-width: 320px; max-width: 320px; background: var(--bg-card); border-left: 2px solid var(--cyan); padding: 30px; scroll-snap-align: center; user-select: none; transition: transform 0.3s; }
+       .card:hover { transform: translateY(-5px); }
+       .card-role { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
+       .card-company { color: var(--primary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+       .card-date { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px; display: block; }
+       .card-desc { font-size: 0.9rem; color: #ccc; }
+       .nav-btn { background: var(--bg-card); border: none; color: var(--cyan); font-size: 1.5rem; cursor: pointer; padding: 15px; transition: 0.2s; z-index: 2; }
+       .nav-btn:hover { color: #fff; background: var(--primary); }
        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-       .skill-card { background: var(--bg-card); padding: 25px; border-radius: 8px; border-bottom: 3px solid transparent; transition: 0.3s; }
-       .skill-card:hover { border-bottom-color: var(--secondary); transform: translateY(-5px); }
-       .skill-title { font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 15px; color: #fff; }
-       .tags span { display: inline-block; background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; margin: 0 5px 5px 0; }
-       .contact-btn { display: inline-block; padding: 15px 40px; margin-top: 30px; border: 2px solid var(--primary); color: var(--primary); font-family: var(--font-head); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-       .contact-btn:hover { background: var(--primary); color: #fff; box-shadow: 0 0 20px rgba(255, 70, 85, 0.4); }
+       .skill-box { background: var(--bg-card); padding: 25px; border-bottom: 2px solid transparent; transition: 0.3s; }
+       .skill-box:hover { border-bottom-color: var(--primary); }
+       .skill-cat { color: var(--cyan); font-weight: 700; margin-bottom: 15px; text-transform: uppercase; }
+       .tag { display: inline-block; background: rgba(255,255,255,0.05); padding: 5px 10px; margin: 0 5px 5px 0; border-radius: 4px; font-size: 0.85rem; }
+       .contact-cta { text-align: center; margin-top: 50px; }
+       .btn-main { display: inline-block; padding: 15px 40px; border: 2px solid var(--primary); color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 20px; }
+       .btn-main:hover { background: var(--primary); color: #fff; box-shadow: 0 0 20px rgba(255, 70, 85, 0.4); }
+        footer { text-align: center; padding: 40px; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid #1a1b29; }
         @keyframes blink { 50% { opacity: 0; } }
-        @media (max-width: 768px) {.hero-name { font-size: 3rem; }.carousel-container { border-radius: 0; max-width: 100%; } }
+        @media (max-width: 768px) { h1.hero-name { font-size: 3.5rem; }.carousel-wrap { flex-direction: column; }.nav-btn { display: none; }.card { min-width: 85vw; } }
     </style>
 </head>
 <body>
 
-    <div class="lang-switch">
-        <button class="lang-btn" onclick="localStorage.setItem('lang_pref', 'cs'); window.location.href='index.html'">CZ</button>
-    </div>
-
     <header>
+        <div class="lang-switch">
+            <button class="lang-btn" onclick="window.location.href='index.html'">EN / CZ</button>
+        </div>
         <div class="container">
             <h1 class="hero-name">Marek <span>Krejčík</span></h1>
-            <div class="typewriter" id="typewriter"></div>
-        </div>
-    </header>
-
-    <section id="gallery">
-        <div class="container">
-            <h2 class="section-title">Visual Log</h2>
-            <div class="carousel-container">
-                <div class="slides" id="slides">
-                    <div class="slide"><img src="photos/photo1.jpg" alt="Event photo 1" onerror="this.style.display='none'; this.parentNode.innerHTML='Photo 1 (Upload to photos/)'"></div>
-                    <div class="slide"><img src="photos/photo2.jpg" alt="Event photo 2" onerror="this.style.display='none'; this.parentNode.innerHTML='Photo 2'"></div>
-                    <div class="slide"><img src="photos/photo3.jpg" alt="Event photo 3" onerror="this.style.display='none'; this.parentNode.innerHTML='Photo 3'"></div>
-                </div>
-                <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-                <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+            <div class="typewriter">
+                <span id="typing-text"></span><span class="cursor">|</span>
             </div>
         </div>
-    </section>
+    </header>
 
     <section id="experience">
         <div class="container">
             <h2 class="section-title">Career Path</h2>
-            <div class="timeline">
-                <div class="timeline-item hidden">
-                    <div class="role">Head of Esports / Head of Production</div>
-                    <div class="company">Hitpoint s.r.o.</div>
-                    <div class="date">6/2017 - Present</div>
-                    <p class="desc">COO/CPO role. Main contact point for Riot Games. Managing Hitpoint Masters league and production team (20+ ppl).</p>
+            
+            <div class="carousel-wrap">
+                <button class="nav-btn nav-prev" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+                
+                <div class="carousel" id="carousel">
+                    <div class="card">
+                        <div class="card-role">Head of Esports</div>
+                        <div class="card-company">Hitpoint s.r.o.</div>
+                        <div class="card-date">06/2017 - Present</div>
+                        <p class="card-desc">COO/CPO role. Main contact for Riot Games. Managing production team (20+ ppl), strategic marketing, and broadcast automation.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-role">Tech Designer</div>
+                        <div class="card-company">EksDee s.r.o.</div>
+                        <div class="card-date">10/2021 - Present</div>
+                        <p class="card-desc">Marketing agency (Xnapy). Technical design for PGL Major and TFT Championship. Innovation in live streaming.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-role">Manager (Dev)</div>
+                        <div class="card-company">MADFINGER Games</div>
+                        <div class="card-date">07/2022 - 07/2023</div>
+                        <p class="card-desc">Leading Gameplay and Backend teams for Gray Zone Warfare. Backlog automation using Python.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-role">Software Engineer</div>
+                        <div class="card-company">Honeywell</div>
+                        <div class="card-date">02/2021 - 06/2022</div>
+                        <p class="card-desc">Software development for military avionics. CI/CD management, Docker, Conan. C++ Development.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-role">Observer</div>
+                        <div class="card-company">Riot Games</div>
+                        <div class="card-date">2018</div>
+                        <p class="card-desc">In-game camera operator for EU LCS in Berlin. Direct collaboration at the highest level of European esports.</p>
+                    </div>
                 </div>
 
-                <div class="timeline-item hidden">
-                    <div class="role">Senior Esport Broadcast Tech Designer</div>
-                    <div class="company">EksDee s.r.o.</div>
-                    <div class="date">10/2021 - Present</div>
-                    <p class="desc">Technical design for PGL Major, Prague Champs and other events. Broadcast innovation.</p>
-                </div>
-
-                <div class="timeline-item hidden">
-                    <div class="role">Manager (Gameplay & Backend)</div>
-                    <div class="company">MADFINGER Games a.s.</div>
-                    <div class="date">7/2022 - 7/2023</div>
-                    <p class="desc">Leading development teams for Gray Zone Warfare. Process automation (Python, Google Apps Script).</p>
-                </div>
-
-                <div class="timeline-item hidden">
-                    <div class="role">Software Engineer</div>
-                    <div class="company">Honeywell International</div>
-                    <div class="date">2/2021 - 6/2022</div>
-                    <p class="desc">Software development for military avionics. CI/CD, Docker, Conan.</p>
-                </div>
+                <button class="nav-btn nav-next" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
@@ -135,83 +122,86 @@
         <div class="container">
             <h2 class="section-title">Tech Stack</h2>
             <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-title">Development</div>
-                    <div class="tags">
-                        <span>C++</span> <span>Python</span> <span>C#</span> <span>JavaScript</span> <span>SQL</span>
-                    </div>
+                <div class="skill-box">
+                    <div class="skill-cat">Languages</div>
+                    <span class="tag">C++</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">C#</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">SQL</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-title">Ops & Tools</div>
-                    <div class="tags">
-                        <span>Docker</span> <span>Git</span> <span>Linux</span> <span>CI/CD</span> <span>vMix</span>
-                    </div>
+                <div class="skill-box">
+                    <div class="skill-cat">DevOps & Tools</div>
+                    <span class="tag">Docker</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">Linux/Bash</span>
+                    <span class="tag">CI/CD</span>
+                    <span class="tag">Google AppsScript</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-title">Management</div>
-                    <div class="tags">
-                        <span>Team Leadership</span> <span>Crisis Mgmt</span> <span>Event Production</span>
-                    </div>
+                <div class="skill-box">
+                    <div class="skill-cat">Production</div>
+                    <span class="tag">vMix</span>
+                    <span class="tag">OBS Studio</span>
+                    <span class="tag">Event Management</span>
+                    <span class="tag">Team Leadership</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" style="text-align: center;">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
+    <section id="contact">
+        <div class="container contact-cta">
+            <h2 class="section-title">Contact</h2>
             <p>Ivančice, Czechia | +420 608 665 554</p>
-            <a href="mailto:krewca@seznam.cz" class="contact-btn">Send Email</a>
+            <a href="mailto:krewca@seznam.cz" class="btn-main">Send Email</a>
         </div>
     </section>
 
     <footer>
-        <p style="text-align:center; padding: 40px; color: #555; font-size: 0.8rem;">&copy; 2026 Marek Krejčík</p>
+        &copy; 2026 Marek Krejčík. Built with Clean Code.
     </footer>
 
     <script>
-        const phrases =;
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const textElement = document.getElementById('typewriter');
+        const textElement = document.getElementById('typing-text');
+        const textToType = "Software Engineer & Esports Lead";
+        let idx = 0;
 
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            if (isDeleting) {
-                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
+        function typeWriter() {
+            if (idx < textToType.length) {
+                textElement.innerHTML += textToType.charAt(idx);
+                idx++;
+                setTimeout(typeWriter, 100);
             }
-            let typeSpeed = isDeleting? 50 : 100;
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true; typeSpeed = 2000;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; typeSpeed = 500;
-            }
-            setTimeout(type, typeSpeed);
         }
-        document.addEventListener('DOMContentLoaded', type);
+        
+        const slider = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
+        nextBtn.addEventListener('click', () => { slider.scrollBy({ left: 340, behavior: 'smooth' }); });
+        prevBtn.addEventListener('click', () => { slider.scrollBy({ left: -340, behavior: 'smooth' }); });
 
-        let slideIndex = 0;
-        function moveSlide(step) {
-            const slides = document.querySelectorAll('.slide');
-            const wrapper = document.getElementById('slides');
-            slideIndex += step;
-            if (slideIndex >= slides.length) slideIndex = 0;
-            if (slideIndex < 0) slideIndex = slides.length - 1;
-            wrapper.style.transform = `translateX(-${slideIndex * 100}%)`;
-        }
-        setInterval(() => moveSlide(1), 5000);
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => { isDown = false; slider.classList.remove('active'); });
+        slider.addEventListener('mouseup', () => { isDown = false; slider.classList.remove('active'); });
+        slider.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        window.onload = typeWriter;
     </script>
 </body>
 </html>
