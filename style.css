@@ -1,0 +1,221 @@
+/* --- 1. CORE VARIABLES & RESET --- */
+:root {
+    --bg-dark: #0b0c15;       /* Deep Void */
+    --bg-card: #151621;       /* Card Surface */
+    --primary: #ff4655;       /* Valorant Red */
+    --cyan: #00f0ff;          /* Cyber Cyan */
+    --text-main: #ffffff;
+    --text-muted: #9494a0;
+    --font-stack: 'Outfit', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-dark);
+    /* Subtle grid pattern + glowing radial gradients for esports-tech vibe */
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(255, 70, 85, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+    background-attachment: fixed;
+    color: var(--text-main);
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.2s; }
+ul { list-style: none; }
+
+/* --- 2. LAYOUT & TYPOGRAPHY --- */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+section { padding: 80px 0; }
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    display: inline-block;
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 5px;
+}
+
+/* --- 3. HEADER (HERO) --- */
+header {
+    height: 90vh; /* Nechat kousek místa pro náznak obsahu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.lang-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid var(--text-muted);
+    color: var(--text-muted);
+    padding: 8px 16px;
+    font-family: var(--font-stack);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.lang-btn:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+h1.hero-name {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: -2px;
+}
+
+h1 span { color: var(--primary); }
+
+.typewriter {
+    font-size: 1.5rem;
+    color: var(--cyan);
+    font-family: monospace; /* Terminálový vzhled */
+    height: 1.6em;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    background-color: var(--text-main);
+    animation: blink 1s infinite;
+}
+
+/* --- 4. CAROUSEL (Timeline) --- */
+.carousel-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 20px;
+    cursor: grab;
+    /* Skrytí scrollbaru */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.carousel::-webkit-scrollbar { display: none; }
+
+.carousel.active { cursor: grabbing; cursor: -webkit-grabbing; }
+
+.card {
+    min-width: 320px;
+    max-width: 320px;
+    background: var(--bg-card);
+    border-left: 2px solid var(--cyan);
+    padding: 30px;
+    scroll-snap-align: center;
+    user-select: none; /* Aby text nešlo označit při dragování */
+    transition: transform 0.3s;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+.card-role { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
+.card-company { color: var(--primary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+.card-date { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px; display: block; }
+.card-desc { font-size: 0.9rem; color: #ccc; }
+
+/* Navigační šipky */
+.nav-btn {
+    background: var(--bg-card);
+    border: none;
+    color: var(--cyan);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 15px;
+    transition: 0.2s;
+    z-index: 2;
+}
+.nav-btn:hover { color: #fff; background: var(--primary); }
+.nav-prev { margin-right: 10px; }
+.nav-next { margin-left: 10px; }
+
+/* --- 5. SKILLS (Grid) --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.skill-box {
+    background: var(--bg-card);
+    padding: 25px;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+.skill-box:hover { border-bottom-color: var(--primary); }
+
+.skill-cat { color: var(--cyan); font-weight: 700; margin-bottom: 15px; text-transform: uppercase; }
+
+.tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.05);
+    padding: 5px 10px;
+    margin: 0 5px 5px 0;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+/* --- 6. FOOTER & CONTACT --- */
+.contact-cta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-main {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+.btn-main:hover { background: var(--primary); color: #fff; box-shadow: 0 0 20px rgba(255, 70, 85, 0.4); }
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid #1a1b29;
+}
+
+/* ANIMACE */
+@keyframes blink { 50% { opacity: 0; } }
+
+/* MOBIL */
+@media (max-width: 768px) {
+    h1.hero-name { font-size: 3.5rem; }
+    .carousel-wrap { flex-direction: column; }
+    .nav-btn { display: none; } /* Na mobilu stačí swipe */
+    .card { min-width: 85vw; } /* Karta přes celou šířku */
+}
