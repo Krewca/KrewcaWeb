@@ -1,30 +1,31 @@
-Portfolio Website | Marek Krejčík
-!(https://img.shields.io/badge/Status-Live-success?style=flat-square)
+# Portfolio Website | Marek Krejčík
 
-!(https://img.shields.io/badge/Tech-Vanilla_JS-yellow?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Live-success?style=flat-square)
+![Tech](https://img.shields.io/badge/Tech-Vanilla_JS-yellow?style=flat-square)
 
 Osobní webová prezentace zaměřená na Esports produkci a Softwarové inženýrství.
 Hostováno zdarma na GitHub Pages s vlastní doménou.
 
-🛠️ Technologie
-HTML5 / CSS3: Čistý kód bez frameworků pro maximální rychlost.
+## 🛠️ Technologie
 
-Vanilla JavaScript: Vlastní implementace karuselu (drag & touch support) a typewriter efektu.
+*   **HTML5 / CSS3**: Čistý kód bez frameworků pro maximální rychlost.
+*   **Vanilla JavaScript**: Vlastní implementace karuselu (drag & touch support) a typewriter efektu.
+*   **Design**: Cyberpunk a esport estetika (Dark Mode + Neon Accents a moderní pozadí). Font Outfit (Google Fonts) s plnou podporou češtiny a angličtiny.
 
-Design: Cyberpunk estetika (Dark Mode + Neon Accents). Font Outfit (Google Fonts) s plnou podporou češtiny.
+## 🚀 Jak nasadit
 
-🚀 Jak nasadit
-Nahrát soubory index.html a en.html do rootu repozitáře.
+1.  Nahrát všechny zdrojové soubory (html, css, js) do rootu repozitáře.
+2.  V **GitHub Settings -> Pages** nastavit zdroj na `main` branch.
+3.  Nastavit Custom Domain na `krejcik.cz` (vytvoří se `CNAME` soubor).
 
-V GitHub Settings -> Pages nastavit zdroj na main branch.
+## 📂 Struktura
 
-Nastavit Custom Domain na krejcik.cz (vytvoří se CNAME soubor).
+*   `index.html` - Hlavní česká verze.
+*   `en.html` - Anglická verze.
+*   `style.css` - Společné styly pro obě jazykové verze.
+*   `script.js` - Společné skripty (typewriter, carousel) pro obě jazykové verze.
+*   `README.md` - Dokumentace.
 
-📂 Struktura
-index.html - Hlavní česká verze.
+---
 
-en.html - Anglická verze (identický design).
-
-README.md - Dokumentace.
-
-© 2026 Marek Krejčík
+&copy; 2026 Marek Krejčík
