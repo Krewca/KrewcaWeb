@@ -116,6 +116,7 @@ h1 span { color: var(--primary); }
     scroll-snap-type: x mandatory;
     padding-bottom: 20px;
     cursor: grab;
+    touch-action: pan-y; /* Povolí swipování horizontálně bez posunu stránky */
     /* Skrytí scrollbaru */
     scrollbar-width: none;
     -ms-overflow-style: none;
