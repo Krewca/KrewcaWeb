@@ -51,6 +51,30 @@ if (slider && prevBtn && nextBtn) {
         const walk = (x - startX) * 2; // Rychlost posunu
         slider.scrollLeft = scrollLeft - walk;
     });
+
+    // Touch logika pro mobilní zařízení
+    slider.addEventListener('touchstart', (e) => {
+        isDown = true;
+        slider.classList.add('active');
+        startX = e.touches[0].pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener('touchend', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+    slider.addEventListener('touchcancel', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+    slider.addEventListener('touchmove', (e) => {
+        if(!isDown) return;
+        const x = e.touches[0].pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2; // Rychlost posunu
+        // Zabráníme defaultnímu scrollování stránky pouze pokud scrollujeme vodorovně
+        // ale touch-action: pan-y v CSS už tohle většinou řeší.
+        slider.scrollLeft = scrollLeft - walk;
+    }, { passive: true });
 }
 
 // Spustit psaní po načtení
