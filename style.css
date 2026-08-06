@@ -2,10 +2,13 @@
 :root {
     --bg-dark: #0b0c15;       /* Deep Void */
     --bg-card: #151621;       /* Card Surface */
+    --bg-card-hover: #1c1e2d;
     --primary: #ff4655;       /* Valorant Red */
     --cyan: #00f0ff;          /* Cyber Cyan */
     --text-main: #ffffff;
     --text-muted: #9494a0;
+    --text-sub: #cbd5e1;
+    --border-color: rgba(255, 255, 255, 0.08);
     --font-stack: 'Outfit', sans-serif;
 }
 
@@ -15,10 +18,10 @@ body {
     background-color: var(--bg-dark);
     /* Subtle grid pattern + glowing radial gradients for esports-tech vibe */
     background-image:
-        radial-gradient(circle at 15% 50%, rgba(255, 70, 85, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        radial-gradient(circle at 15% 30%, rgba(255, 70, 85, 0.1) 0%, transparent 45%),
+        radial-gradient(circle at 85% 70%, rgba(0, 240, 255, 0.1) 0%, transparent 45%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
     background-attachment: fixed;
     color: var(--text-main);
@@ -27,72 +30,86 @@ body {
     overflow-x: hidden;
 }
 
-a { text-decoration: none; color: inherit; transition: 0.2s; }
+a { text-decoration: none; color: inherit; transition: all 0.25s ease; }
 ul { list-style: none; }
 
 /* --- 2. LAYOUT & TYPOGRAPHY --- */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-section { padding: 80px 0; }
+.container { max-width: 1150px; margin: 0 auto; padding: 0 20px; }
+section { padding: 70px 0; }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 800;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
     display: inline-block;
     border-bottom: 3px solid var(--primary);
     padding-bottom: 5px;
+    letter-spacing: 1px;
 }
 
 /* --- 3. HEADER (HERO) --- */
 header {
-    height: 90vh; /* Nechat kousek místa pro náznak obsahu */
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
+    padding: 60px 20px;
 }
 
 .lang-switch {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 25px;
+    right: 25px;
+    z-index: 10;
 }
 
 .lang-btn {
-    background: transparent;
+    background: rgba(21, 22, 33, 0.8);
     border: 1px solid var(--text-muted);
     color: var(--text-muted);
-    padding: 8px 16px;
+    padding: 8px 18px;
     font-family: var(--font-stack);
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
 .lang-btn:hover {
     border-color: var(--cyan);
     color: var(--cyan);
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
 }
 
 h1.hero-name {
-    font-size: 5rem;
+    font-size: 4.8rem;
     font-weight: 800;
     line-height: 1;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     letter-spacing: -2px;
 }
 
 h1 span { color: var(--primary); }
 
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
 .typewriter {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--cyan);
-    font-family: monospace; /* Terminálový vzhled */
-    height: 1.6em;
+    font-family: monospace;
+    height: 1.8em;
+    margin-bottom: 25px;
 }
 
 .cursor {
@@ -102,7 +119,111 @@ h1 span { color: var(--primary); }
     animation: blink 1s infinite;
 }
 
-/* --- 4. CAROUSEL (Timeline) --- */
+.hero-cta {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+/* --- BUTTONS --- */
+.btn-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-main:hover {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 70, 85, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: transparent;
+    border: 2px solid var(--cyan);
+    color: var(--cyan);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: var(--cyan);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.35);
+    transform: translateY(-2px);
+}
+
+/* --- 4. ABOUT SECTION --- */
+.about-box {
+    background: rgba(21, 22, 33, 0.85);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--cyan);
+    padding: 35px;
+    border-radius: 6px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.about-box p {
+    font-size: 1.05rem;
+    color: var(--text-sub);
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.about-box p:last-child {
+    margin-bottom: 0;
+}
+
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- 5. CAROUSEL (Timeline) --- */
 .carousel-wrap {
     position: relative;
     display: flex;
@@ -111,103 +232,189 @@ h1 span { color: var(--primary); }
 
 .carousel {
     display: flex;
-    gap: 20px;
+    gap: 24px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding-bottom: 20px;
+    padding: 10px 5px 25px 5px;
     cursor: grab;
-    touch-action: pan-y; /* Povolí swipování horizontálně bez posunu stránky */
-    /* Skrytí scrollbaru */
+    touch-action: pan-y;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
-.carousel::-webkit-scrollbar { display: none; }
 
-.carousel.active { cursor: grabbing; cursor: -webkit-grabbing; }
+.carousel::-webkit-scrollbar { display: none; }
+.carousel.active { cursor: grabbing; }
 
 .card {
-    min-width: 320px;
-    max-width: 320px;
+    min-width: 380px;
+    max-width: 380px;
     background: var(--bg-card);
-    border-left: 2px solid var(--cyan);
-    padding: 30px;
-    scroll-snap-align: center;
-    user-select: none; /* Aby text nešlo označit při dragování */
-    transition: transform 0.3s;
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--cyan);
+    border-radius: 6px;
+    padding: 28px;
+    scroll-snap-align: start;
+    user-select: none;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.card:hover { transform: translateY(-5px); }
+.card:hover {
+    transform: translateY(-6px);
+    border-left-color: var(--primary);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    background: var(--bg-card-hover);
+}
 
-.card-role { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
-.card-company { color: var(--primary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-.card-date { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px; display: block; }
-.card-desc { font-size: 0.9rem; color: #ccc; }
+.card-role { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.card-company { color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.card-date { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px; display: block; font-weight: 600; }
+.card-desc { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 12px; line-height: 1.5; }
+
+.card-bullets {
+    margin-top: 8px;
+    padding-left: 0;
+}
+
+.card-bullets li {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 8px;
+    line-height: 1.45;
+    position: relative;
+    padding-left: 16px;
+}
+
+.card-bullets li::before {
+    content: "•";
+    color: var(--cyan);
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+    line-height: 1;
+}
 
 /* Navigační šipky */
 .nav-btn {
     background: var(--bg-card);
-    border: none;
+    border: 1px solid var(--border-color);
     color: var(--cyan);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     cursor: pointer;
-    padding: 15px;
+    padding: 14px 18px;
+    border-radius: 6px;
     transition: 0.2s;
     z-index: 2;
 }
-.nav-btn:hover { color: #fff; background: var(--primary); }
-.nav-prev { margin-right: 10px; }
-.nav-next { margin-left: 10px; }
 
-/* --- 5. SKILLS (Grid) --- */
+.nav-btn:hover { color: #fff; background: var(--primary); border-color: var(--primary); }
+.nav-prev { margin-right: 12px; }
+.nav-next { margin-left: 12px; }
+
+/* --- 6. SKILLS (Grid) --- */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
 }
 
 .skill-box {
     background: var(--bg-card);
-    padding: 25px;
-    border-bottom: 2px solid transparent;
-    transition: 0.3s;
+    padding: 28px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    border-top: 3px solid var(--cyan);
+    transition: 0.3s ease;
 }
-.skill-box:hover { border-bottom-color: var(--primary); }
 
-.skill-cat { color: var(--cyan); font-weight: 700; margin-bottom: 15px; text-transform: uppercase; }
+.skill-box:hover {
+    border-top-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.skill-cat {
+    color: var(--cyan);
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
 
 .tag {
     display: inline-block;
-    background: rgba(255,255,255,0.05);
-    padding: 5px 10px;
-    margin: 0 5px 5px 0;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 6px 12px;
+    margin: 0 6px 8px 0;
     border-radius: 4px;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+    color: var(--text-sub);
+    transition: all 0.2s ease;
 }
 
-/* --- 6. FOOTER & CONTACT --- */
+.tag:hover {
+    background: rgba(0, 240, 255, 0.15);
+    color: var(--cyan);
+    border-color: var(--cyan);
+}
+
+/* --- 7. EDUCATION SECTION --- */
+.edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+}
+
+.edu-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--primary);
+    padding: 28px;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+.edu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.edu-degree { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.edu-school { color: var(--cyan); font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; }
+.edu-date { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 600; }
+.edu-desc { font-size: 0.88rem; color: var(--text-sub); line-height: 1.5; }
+
+/* --- 8. FOOTER & CONTACT --- */
 .contact-cta {
     text-align: center;
-    margin-top: 50px;
+    background: rgba(21, 22, 33, 0.6);
+    border: 1px solid var(--border-color);
+    padding: 50px 30px;
+    border-radius: 8px;
 }
 
-.btn-main {
-    display: inline-block;
-    padding: 15px 40px;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 20px;
+.contact-cta p {
+    font-size: 1.1rem;
+    color: var(--text-sub);
+    margin-bottom: 25px;
 }
-.btn-main:hover { background: var(--primary); color: #fff; box-shadow: 0 0 20px rgba(255, 70, 85, 0.4); }
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
 footer {
     text-align: center;
     padding: 40px;
     color: var(--text-muted);
-    font-size: 0.8rem;
-    border-top: 1px solid #1a1b29;
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border-color);
 }
 
 /* ANIMACE */
@@ -215,8 +422,10 @@ footer {
 
 /* MOBIL */
 @media (max-width: 768px) {
-    h1.hero-name { font-size: 3.5rem; }
+    h1.hero-name { font-size: 3.2rem; }
+    .hero-subtitle { font-size: 0.95rem; }
     .carousel-wrap { flex-direction: column; }
-    .nav-btn { display: none; } /* Na mobilu stačí swipe */
-    .card { min-width: 85vw; } /* Karta přes celou šířku */
+    .nav-btn { display: none; }
+    .card { min-width: 88vw; max-width: 88vw; }
+    .about-highlights { grid-template-columns: 1fr 1fr; }
 }

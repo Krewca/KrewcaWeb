@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marek Krejčík | Esports & Tech</title>
-    <meta name="description" content="Professional Portfolio - Marek Krejčík">
+    <title>Marek Krejčík | Chief Operating Officer & Software Engineer</title>
+    <meta name="description" content="Professional Portfolio & Resume Presentation - Marek Krejčík. COO/CPO, Head of Esports, Software Engineer & Broadcast Architect.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;800&display=swap&subset=latin,latin-ext" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,98 +21,248 @@
         </div>
         <div class="container">
             <h1 class="hero-name">Marek <span>Krejčík</span></h1>
+            <div class="hero-subtitle">Executive Operations &nbsp;|&nbsp; Technical Software Design &nbsp;|&nbsp; Esport Production</div>
             <div class="typewriter">
-                <span id="typing-text" data-text="Head of Esports & Production"></span><span class="cursor">|</span>
+                <span id="typing-text"></span><span class="cursor">|</span>
+            </div>
+            <div class="hero-cta">
+                <a href="Marek_Krejcik_CV.pdf" class="btn-main" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Resume (PDF)</a>
+                <a href="#contact" class="btn-secondary"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
             </div>
         </div>
     </header>
 
+    <!-- ABOUT / EXECUTIVE OVERVIEW -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-box">
+                <p>
+                    I am an <b>Operations & Technical Leader</b> with 8+ years of experience spanning executive management (COO/CPO), 
+                    software engineering, game development, and broadcast architecture.
+                </p>
+                <p>
+                    My track record includes developing and scaling the Czech & Slovak League of Legends ecosystem (growing the regional ERL league 
+                    from 6 to 20+ stable teams), directing cross-functional teams of 20+ professionals, engineering custom live broadcast software in C#, C++, 
+                    and Python, as well as developing mission-critical defense software at Honeywell Avionics and managing AAA game development at MADFINGER Games (<i>Gray Zone Warfare</i>).
+                </p>
+                <div class="about-highlights">
+                    <div class="stat-item">
+                        <span class="stat-number">8+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">8000+</span>
+                        <span class="stat-label">Broadcast Hours</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Offline Events Managed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Direct Reports Led</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAREER PATH (CAROUSEL TIMELINE) -->
     <section id="experience">
         <div class="container">
             <h2 class="section-title">Career Path</h2>
             
             <div class="carousel-wrap">
-                <button class="nav-btn nav-prev" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="nav-btn nav-prev" id="prevBtn" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
                 
                 <div class="carousel" id="carousel">
+                    <!-- Hitpoint s.r.o. -->
                     <div class="card">
-                        <div class="card-role">Head of Esports & Production</div>
+                        <div class="card-role">Head of Esports & Production (COO / CPO)</div>
                         <div class="card-company">Hitpoint s.r.o.</div>
-                        <div class="card-date">06/2017 - Present</div>
-                        <p class="card-desc">COO/CPO role. Main contact for Riot Games for League of Legends esports in the Czech Republic and Slovakia. Production management (10+ people), preparation, coordination, and execution of live broadcasts. Programming of broadcast software.</p>
+                        <div class="card-date">06/2017 – Present &nbsp;|&nbsp; Brno / Svitavy, CZ</div>
+                        <p class="card-desc">Executive Operations (COO/CPO/CTO) and primary strategic liaison for Riot Games for League of Legends esports in CZ & SK.</p>
+                        <ul class="card-bullets">
+                            <li>Scaled regional LoL competitive ecosystem from 6 to 20+ teams (Mastercard Hitpoint Masters ERL, 2nd Division, KIA 3rd Division).</li>
+                            <li>Led broadcast teams (~15 members online, ~20 members arena offline) across 20+ offline events managed and 8,000+ total broadcast hours.</li>
+                            <li>Programmed custom broadcast overlay software, automated graphics pipelines, and real-time streaming tools.</li>
+                        </ul>
                     </div>
 
+                    <!-- EksDee s.r.o. -->
                     <div class="card">
                         <div class="card-role">Senior Esport Broadcast Technical Designer</div>
                         <div class="card-company">EksDee s.r.o.</div>
-                        <div class="card-date">10/2021 - Present</div>
-                        <p class="card-desc">EksDee is a marketing agency built around streamer Xnapy. The role I hold could be described by the usual brief: "Do something no one before you has done, and that you think will be good."</p>
+                        <div class="card-date">10/2021 – Present &nbsp;|&nbsp; Brno, CZ</div>
+                        <p class="card-desc">Architected bespoke technical streaming solutions, custom overlays, and infrastructure for streamer Xnapy's agency.</p>
+                        <ul class="card-bullets">
+                            <li>Technical stream design for key broadcasts: PGL Major 2021 CZ/SK Stream, Prague Champs, Teamfight Tactics CZ/SK Championship, ROG For People, TFT Star Cup, KitKat Dodgeball.</li>
+                        </ul>
                     </div>
 
+                    <!-- MADFINGER Games a.s. -->
                     <div class="card">
-                        <div class="card-role">Manager (GameDev)</div>
-                        <div class="card-company">MADFINGER Games</div>
-                        <div class="card-date">07/2022 - 07/2023</div>
-                        <p class="card-desc">Management of teams dealing with game mechanics, online services, and marketing for a hyper-realistic PC shooter project, Gray Zone Warfare.</p>
+                        <div class="card-role">Engineering & Product Manager (GameDev)</div>
+                        <div class="card-company">MADFINGER Games a.s.</div>
+                        <div class="card-date">07/2022 – 07/2023 &nbsp;|&nbsp; Brno, CZ</div>
+                        <p class="card-desc">Managed cross-functional game development and marketing teams for hyper-realistic tactical PC FPS Gray Zone Warfare.</p>
+                        <ul class="card-bullets">
+                            <li>Led teams spanning Gameplay, Backend, UI/Animation, and Marketing.</li>
+                            <li>Automated product backlog tracking and team workflows using REST APIs, Python, and Google Apps Script (Node.js).</li>
+                        </ul>
                     </div>
 
+                    <!-- Honeywell International -->
                     <div class="card">
-                        <div class="card-role">Software Engineer</div>
-                        <div class="card-company">Honeywell</div>
-                        <div class="card-date">02/2021 - 06/2022</div>
-                        <p class="card-desc">Software development on multiple projects for military aviation. CI/CD management, Docker, Conan.</p>
+                        <div class="card-role">Software Engineer – Military Avionics</div>
+                        <div class="card-company">Honeywell International</div>
+                        <div class="card-date">02/2021 – 06/2022 &nbsp;|&nbsp; Brno, CZ</div>
+                        <p class="card-desc">Developed mission-critical military avionics software adhering to strict defense standards.</p>
+                        <ul class="card-bullets">
+                            <li>Maintained CI/CD automated build pipelines, Docker container environments, and Conan C/C++ package management on Linux.</li>
+                        </ul>
                     </div>
 
+                    <!-- MADFINGER Games - Shadowgun -->
                     <div class="card">
-                        <div class="card-role">Observer</div>
+                        <div class="card-role">Esport Consultant & Broadcast Director</div>
+                        <div class="card-company">MADFINGER Games a.s.</div>
+                        <div class="card-date">07/2018 – 08/2018 &nbsp;|&nbsp; Cologne, Germany / Brno, CZ</div>
+                        <p class="card-desc">Consulted on spectator mode mechanics and directed live tournament stream on ESL Main Stage at Gamescom 2018.</p>
+                        <ul class="card-bullets">
+                            <li>Co-designed in-game spectator mode functionality for mobile tactical shooter Shadowgun WarGames.</li>
+                            <li>Co-directed and acted as main observer for Shadowgun: The First War Game tournament on ESL Main Stage.</li>
+                        </ul>
+                    </div>
+
+                    <!-- PLAYzone s.r.o. -->
+                    <div class="card">
+                        <div class="card-role">Esport Broadcast Producer, Observer & Admin</div>
+                        <div class="card-company">PLAYzone s.r.o.</div>
+                        <div class="card-date">10/2015 – 11/2021 &nbsp;|&nbsp; Prague, CZ</div>
+                        <p class="card-desc">Produced live broadcasts for Slovak Republic PC Games Championship, Prima COOL Finals, and Czech Republic PC Games Championship.</p>
+                        <ul class="card-bullets">
+                            <li>Lead in-game camera observer (LoL, CS:GO, PUBG) across 20+ esports tournaments.</li>
+                            <li>Managed tournament operations and technical staff at 30+ offline events.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Riot Games -->
+                    <div class="card">
+                        <div class="card-role">EU LCS Live Action Observer</div>
                         <div class="card-company">Riot Games</div>
-                        <div class="card-date">2018</div>
-                        <p class="card-desc">In-game camera operator for EU LCS in Berlin. Direct collaboration at the highest level of European esports.</p>
+                        <div class="card-date">02/2018 – 09/2018 &nbsp;|&nbsp; Berlin, Germany</div>
+                        <p class="card-desc">In-game camera operator for European League of Legends Championship Series (EU LCS Spring 2018) in Berlin studio.</p>
+                        <ul class="card-bullets">
+                            <li>Direct collaboration at the highest tier of global esports broadcasting.</li>
+                        </ul>
+                    </div>
+
+                    <!-- ČMSS -->
+                    <div class="card">
+                        <div class="card-role">Sales Representative</div>
+                        <div class="card-company">Českomoravská Stavební Spořitelna a.s.</div>
+                        <div class="card-date">08/2016 – 07/2018 &nbsp;|&nbsp; Ivančice, CZ</div>
+                        <p class="card-desc">Client relationship management, financial planning, and advisory services for ČMSS portfolio.</p>
+                    </div>
+
+                    <!-- Wangl Championship -->
+                    <div class="card">
+                        <div class="card-role">Project Manager</div>
+                        <div class="card-company">Wangl Championship</div>
+                        <div class="card-date">10/2015 – 07/2017 &nbsp;|&nbsp; Ivančice, CZ</div>
+                        <p class="card-desc">Coordinated regional esport tournaments and technology community events.</p>
                     </div>
                 </div>
 
-                <button class="nav-btn nav-next" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+                <button class="nav-btn nav-next" id="nextBtn" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
 
+    <!-- TECH STACK & SKILLS -->
     <section id="skills">
         <div class="container">
-            <h2 class="section-title">Tech Stack</h2>
+            <h2 class="section-title">Tech Stack & Skills</h2>
             <div class="skills-grid">
                 <div class="skill-box">
-                    <div class="skill-cat">Coding</div>
-                    <span class="tag">C</span>
+                    <div class="skill-cat">Executive & Operations</div>
+                    <span class="tag">Operations Management (COO/CPO)</span>
+                    <span class="tag">Strategic Planning</span>
+                    <span class="tag">Cross-Functional Leadership (15-20+ reports)</span>
+                    <span class="tag">Budgeting & Business Dev</span>
+                    <span class="tag">Riot Games & ESL Partnership</span>
+                    <span class="tag">Onboarding & HR</span>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-cat">Software & DevOps</div>
                     <span class="tag">Python</span>
-                    <span class="tag">C# (Unity)</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">SQL</span>
-                </div>
-                <div class="skill-box">
-                    <div class="skill-cat">DevOps & Tools</div>
+                    <span class="tag">C / C++</span>
+                    <span class="tag">C# (.NET / Unity)</span>
+                    <span class="tag">JavaScript (Node.js)</span>
+                    <span class="tag">SQL (MySQL)</span>
                     <span class="tag">Docker</span>
-                    <span class="tag">Git</span>
-                    <span class="tag">Linux/Bash</span>
-                    <span class="tag">CI/CD</span>
-                    <span class="tag">Google AppsScript</span>
+                    <span class="tag">CI/CD Pipelines</span>
+                    <span class="tag">Conan</span>
+                    <span class="tag">Git & Linux/Bash</span>
+                    <span class="tag">Google Apps Script</span>
+                    <span class="tag">REST APIs</span>
                 </div>
                 <div class="skill-box">
-                    <div class="skill-cat">Production</div>
-                    <span class="tag">Event Management</span>
-                    <span class="tag">Team Leadership</span>
-                    <span class="tag">Mentoring & University lecturer</span>
-                    <span class="tag">Broadcasting in VMix</span>
+                    <div class="skill-cat">Product & GameDev</div>
+                    <span class="tag">Product Backlog Management</span>
+                    <span class="tag">Agile / Scrum</span>
+                    <span class="tag">Cross-Department Management</span>
+                    <span class="tag">Gameplay & Backend Coordination</span>
+                    <span class="tag">Automation Architecture</span>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-cat">Esports & Broadcast Tech</div>
+                    <span class="tag">Live Event Broadcast Engineering</span>
+                    <span class="tag">vMix Production</span>
+                    <span class="tag">Overlay Software Dev</span>
+                    <span class="tag">In-Game Camera Observation</span>
+                    <span class="tag">30+ Offline Events Managed</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- EDUCATION -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-grid">
+                <div class="edu-card">
+                    <div class="edu-degree">Bachelor’s Degree (Bc.) in Information Technology</div>
+                    <div class="edu-school">Brno University of Technology (BUT), Faculty of Information Technology</div>
+                    <div class="edu-date">09/2014 – 07/2020 &nbsp;|&nbsp; Brno, CZ</div>
+                    <p class="edu-desc">
+                        <b>Bachelor's Thesis:</b> <i>"Generating information graphics for live broadcasts"</i> – Developed an automated system for real-time graphics rendering in live video streaming.
+                        (<a href="https://www.fit.vut.cz/study/thesis/23176/.en?year=2019&type=BP" target="_blank" style="color: var(--cyan); text-decoration: underline;">Thesis Link</a>)
+                    </p>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-degree">High School Diploma</div>
+                    <div class="edu-school">Jan Blahoslav Gymnasium</div>
+                    <div class="edu-date">09/2006 – 05/2014 &nbsp;|&nbsp; Ivančice, CZ</div>
+                    <p class="edu-desc">General secondary education completed with graduation diploma.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
     <section id="contact">
         <div class="container contact-cta">
-            <h2 class="section-title">Contact</h2>
-            <p>Brno, Czechia | +420 608 665 554</p>
-            <a href="https://www.linkedin.com/in/marek-krejcik/" class="btn-main" target="_blank">LinkedIn</a>
-            <a href="mailto:krewca@gmail.com" class="btn-main">Send Email</a>
+            <h2 class="section-title">Contact & Resume</h2>
+            <p>Brno / Ivančice, Czechia &nbsp;|&nbsp; +420 608 665 554 &nbsp;|&nbsp; krewca@gmail.com</p>
+            <div class="btn-group">
+                <a href="Marek_Krejcik_CV.pdf" class="btn-main" target="_blank"><i class="fa-solid fa-download"></i> Download Resume (PDF)</a>
+                <a href="https://www.linkedin.com/in/marek-krejcik/" class="btn-secondary" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn Profile</a>
+                <a href="mailto:krewca@gmail.com" class="btn-secondary"><i class="fa-solid fa-envelope"></i> Send Email</a>
+            </div>
         </div>
     </section>
 
