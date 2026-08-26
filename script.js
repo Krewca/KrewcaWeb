@@ -84,7 +84,7 @@ if (textElement) {
     typeWriter();
 }
 
-// --- 3. CAROUSEL LOGIC (Infinite Nav Buttons + Drag Scroll) ---
+// --- 3. CAROUSEL LOGIC (Infinite Nav Buttons + Drag & Touch Scroll) ---
 const slider = document.getElementById('carousel');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
@@ -97,7 +97,7 @@ if (slider) {
                 // Reached end -> smooth loop back to start
                 slider.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
-                slider.scrollBy({ left: 400, behavior: 'smooth' });
+                slider.scrollBy({ left: 360, behavior: 'smooth' });
             }
         });
 
@@ -107,12 +107,12 @@ if (slider) {
                 const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
                 slider.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
             } else {
-                slider.scrollBy({ left: -400, behavior: 'smooth' });
+                slider.scrollBy({ left: -360, behavior: 'smooth' });
             }
         });
     }
 
-    // Drag to scroll
+    // Drag to scroll (Mouse)
     let isDown = false;
     let startX;
     let scrollLeft;
